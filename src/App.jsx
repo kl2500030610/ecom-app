@@ -14,8 +14,6 @@ function App() {
   return (
     <>
       <Header />
-
-        <HashRouter>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product1" element={<Product1 />} />
@@ -25,8 +23,6 @@ function App() {
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin" element={<AdminLogin />} />
           </Routes>
-        </HashRouter>
-        
       <Footer />
     </>
   )
