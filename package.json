@@ -1,14 +1,13 @@
 {
-  "name": "package",
+  "name": "ecom-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://kl2500030610.github.io/ecom-app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview",
+    "lint": "eslint .",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
