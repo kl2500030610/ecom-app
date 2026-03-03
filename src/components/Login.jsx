@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import Captcha from "./Captcha";
 
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [generatedCaptcha, setGeneratedCaptcha] = useState("");
 
   // const handleLogin = () => {
   //   // Simple validation (you can connect DB later)
@@ -18,12 +21,19 @@ function Login() {
   //   }
   // };
 
+  const [isCaptchaValid, setIsCaptchaValid] = useState(false);
 
   const handleLogin = () => {
+  // Check captcha FIRST
+  if (captchaInput !== generatedCaptcha) {
+    alert("Invalid Captcha!");
+    return;
+  }
+
   const users = JSON.parse(localStorage.getItem("users")) || [];
 
   const validUser = users.find(
-    u => u.username === username && u.password === password
+    (u) => u.username === username && u.password === password
   );
 
   if (validUser) {
@@ -34,7 +44,6 @@ function Login() {
     alert("Invalid username or password");
   }
 };
-
     return (
     <>
       <div className="login-wrapper">
@@ -54,6 +63,13 @@ function Login() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Captcha
+            onChange={(input, generated) => {
+              setCaptchaInput(input);
+              setGeneratedCaptcha(generated);
+            }}
           />
 
           <button onClick={handleLogin}>Login</button>
