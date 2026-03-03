@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Payment from "./Payment";
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -77,7 +80,10 @@ function Cart() {
           </div>
         )}
 
-        <h1>Total Price = ${totalPrice}</h1>
+        <h1>Total Price = ${totalPrice}</h1><br /><br />
+        <button onClick={() => navigate('/payment')} style={{ padding: "10px 20px", fontSize: "18px", cursor: "pointer" }}>
+          Proceed to Payment
+        </button>
       </div>
 
     </>

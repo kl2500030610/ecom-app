@@ -9,6 +9,7 @@ import "./components/style.css"
 import Signup from "./components/Signup"
 import AdminDashboard from "./components/AdminDashboard"
 import AdminLogin from "./components/AdminLogin"
+import Payment from "./components/Payment"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
       <Footer />
     </>
