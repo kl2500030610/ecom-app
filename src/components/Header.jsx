@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import logo from "../assets/ecom_logo.png";
 
 function Header(){
 
@@ -38,7 +39,10 @@ function Header(){
   return(
     <>
     <header>
-    <h1>🛍️ MyShop</h1>
+    <div className="logo-container">
+      <img src={logo} alt="Logo" className="logo" />
+      <h1>E-Commerce Store</h1>
+    </div>
     <nav>
       <Link to="/">Home</Link>
       <Link to="/product1">Products</Link>

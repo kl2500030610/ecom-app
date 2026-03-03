@@ -29,6 +29,17 @@ nav a {
   font-weight: bold;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 85px;   /* Increase if you want */
+  height: auto;
+}
+
 /* Hero section */
 .hero {
   height: 350px;
